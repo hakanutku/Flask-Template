@@ -36,4 +36,11 @@ bp = Blueprint('<Blueprint Name>', __name__)
 from app.<Blueprint Name> import routes
 ```
 
+app klasörünün içindeki `__init__.py` dosyasında `create_app` fonksiyonunun içinde blueprint'i şu şekilde kaydet:
+
+```
+from app.<Blueprint Name> import bp as <Blueprint Name>_bp
+app.register_blueprint(<Blueprint Name>_bp) # url_prefix kullanılabilir.
+```
+
 `routes.py` dosyasında da `bp`'yi import edip route'ları yazmaya başlayabilirsin.
